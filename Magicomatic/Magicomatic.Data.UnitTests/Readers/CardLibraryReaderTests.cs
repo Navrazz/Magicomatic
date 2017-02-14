@@ -13,7 +13,7 @@ namespace Magicomatic.Data.UnitTests.Readers
     [TestFixture]
     class CardLibraryReaderTests : AssertionHelper
     {
-        private string FilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Data/EMN.csv";
+        private string FilePath;
 
         private IEnumerable csvFileRows;
         private FileManager fileManager;
@@ -23,6 +23,7 @@ namespace Magicomatic.Data.UnitTests.Readers
         [SetUp]
         public void Before_Each_Test()
         {
+            this.FilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Data/EMN.csv";
             this.csvFileRows = File.ReadLines(FilePath);
             this.fileManager = Substitute.For<FileManager>();
 

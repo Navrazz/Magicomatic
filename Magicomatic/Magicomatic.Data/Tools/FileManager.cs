@@ -5,9 +5,14 @@ namespace Magicomatic.Data.Tools
 {
     public class FileManager
     {
-        public virtual IEnumerable ReadLines(string path)
+        public virtual IEnumerable ReadLines(string filePath)
         {
-            return File.ReadLines(path);
+            return File.ReadLines(filePath);
+        }
+
+        public virtual bool FileExists(string filePath)
+        {
+            return File.Exists(filePath);
         }
     }
 }

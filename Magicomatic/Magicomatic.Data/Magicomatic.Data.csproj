@@ -43,7 +43,7 @@
     <Compile Include="CardFileRepository.cs" />
     <Compile Include="CardRepository.cs" />
     <Compile Include="CardRepositoryFactory.cs" />
-    <Compile Include="ClassOnlineRepository.cs" />
+    <Compile Include="CardOnlineRepository.cs" />
     <Compile Include="ICardRepository.cs" />
     <Compile Include="Model\Card.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

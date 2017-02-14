@@ -1,17 +1,27 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Magicomatic.Data.Model;
+using Magicomatic.Data.Tools;
 
 namespace Magicomatic.Data
 {
-    class CardRepository : ICardRepository
+    public class CardRepository : ICardRepository
     {
-        private List<Card> CardLibrary;
+        private FileManager fileManager;
+        private string filePath;
 
-        public IEnumerable Retrieve(string path)
+        private IEnumerable CardLibrary;
+
+        public CardRepository(FileManager fileManager, string filePath)
         {
-            throw new NotImplementedException();
+            this.fileManager = fileManager;
+            this.filePath    = filePath;
+        }
+
+        public IEnumerable Retrieve()
+        {
+            CardLibrary = new CardRepositoryFactory(fileManager).CreateRepository(filePath).Retrieve() as IEnumerable<Card>;
+            return CardLibrary;
         }
     }
 }

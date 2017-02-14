@@ -2,8 +2,8 @@
 
 namespace Magicomatic.Data
 {
-    interface ICardRepository
+    public interface ICardRepository
     {
-        IEnumerable Retrieve(string path);
+        IEnumerable Retrieve();
     }
 }
