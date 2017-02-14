@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicomatic.UI", "Magicomatic.UI\Magicomatic.UI.csproj", "{9B861086-6FB8-4141-BBDD-1CB4A07FD30A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicomatic.Data", "Magicomatic.Data\Magicomatic.Data.csproj", "{BEB8A2D4-A467-4BA7-9E5F-846AF882CB51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicomatic.Data.UnitTests", "Magicomatic.Data.UnitTests\Magicomatic.Data.UnitTests.csproj", "{C5B477EA-6E16-4AF5-AB35-F7FC9A3A7206}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{9B861086-6FB8-4141-BBDD-1CB4A07FD30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B861086-6FB8-4141-BBDD-1CB4A07FD30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B861086-6FB8-4141-BBDD-1CB4A07FD30A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB8A2D4-A467-4BA7-9E5F-846AF882CB51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB8A2D4-A467-4BA7-9E5F-846AF882CB51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB8A2D4-A467-4BA7-9E5F-846AF882CB51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB8A2D4-A467-4BA7-9E5F-846AF882CB51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5B477EA-6E16-4AF5-AB35-F7FC9A3A7206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5B477EA-6E16-4AF5-AB35-F7FC9A3A7206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5B477EA-6E16-4AF5-AB35-F7FC9A3A7206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5B477EA-6E16-4AF5-AB35-F7FC9A3A7206}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
