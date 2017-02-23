@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Magicomatic.Data.Tools;
 using System.Net;
 using System.IO;
@@ -10,14 +9,16 @@ namespace Magicomatic.Data
 {
     public class CardOnlineRepository : ICardRepository
     {
-        private FileManager fileManager;
         private string filePath;
-        private const string onlineFilePath = "https://www.dropbox.com/s/xjxk5gonurjt1qe/MTGCardDatabase.csv?dl=1";
+        private string url;
 
-        public CardOnlineRepository(FileManager fileManager, string filePath)
+        private FileManager fileManager;
+
+        public CardOnlineRepository(string filePath, string url, FileManager fileManager)
         {
-            this.fileManager = fileManager;
             this.filePath    = filePath;
+            this.url         = url;
+            this.fileManager = fileManager;
         }
 
         public IEnumerable Retrieve()
@@ -39,7 +40,7 @@ namespace Magicomatic.Data
 
         private IEnumerable GetCsvFromWeb()
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(onlineFilePath);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             List<string> result = new List<string>();
