@@ -15,9 +15,9 @@ namespace Magicomatic.UI.Views
 
         private void InitializeData()
         {
-            CardLibraryDataRetriever model = new CardLibraryDataRetriever();
+            CardLibraryDataRetriever cardLibraryDataRetriever = new CardLibraryDataRetriever();
 
-            dataGrid.ItemsSource = model.RetrieveCardLibrary();
+            dataGrid.ItemsSource = cardLibraryDataRetriever.RetrieveCardLibrary();
         }
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
@@ -29,7 +29,7 @@ namespace Magicomatic.UI.Views
         {
             Card card = dataGrid.SelectedItem as Card;
             DataContext = card;
+            imageCard.Source = new CardImageRetriever(card).Retrieve();
         }
-
     }
 }

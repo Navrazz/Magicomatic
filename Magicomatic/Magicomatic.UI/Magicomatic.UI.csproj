@@ -79,6 +79,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataRetrievers\CardImageRetriever.cs" />
     <Compile Include="DataRetrievers\CardLibraryDataRetriever.cs" />
     <Compile Include="Views\CardLibraryView.xaml.cs">
       <DependentUpon>CardLibraryView.xaml</DependentUpon>
