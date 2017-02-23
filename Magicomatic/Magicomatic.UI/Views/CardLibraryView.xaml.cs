@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Magicomatic.Data.Model;
+using Magicomatic.UI.DataRetrievers;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Magicomatic.UI.Views
@@ -8,6 +10,14 @@ namespace Magicomatic.UI.Views
         public CardLibraryView()
         {
             InitializeComponent();
+            InitializeData();
+        }
+
+        private void InitializeData()
+        {
+            CardLibraryDataRetriever model = new CardLibraryDataRetriever();
+
+            dataGrid.ItemsSource = model.RetrieveCardLibrary();
         }
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
@@ -17,7 +27,8 @@ namespace Magicomatic.UI.Views
 
         private void dataGrid_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            //logic
+            Card card = dataGrid.SelectedItem as Card;
+            DataContext = card;
         }
 
     }

@@ -12,15 +12,15 @@ namespace Magicomatic.Data
 
         private IEnumerable CardLibrary;
 
-        public CardRepository(FileManager fileManager, string filePath)
+        public CardRepository(string filePath)
         {
-            this.fileManager = fileManager;
+            this.fileManager = new FileManager();
             this.filePath    = filePath;
         }
 
         public IEnumerable Retrieve()
         {
-            CardLibrary = new CardRepositoryFactory(fileManager).CreateRepository(filePath).Retrieve() as IEnumerable<Card>;
+            CardLibrary = new CardRepositoryFactory(fileManager).CreateRepository(filePath).Retrieve();
             return CardLibrary;
         }
     }
