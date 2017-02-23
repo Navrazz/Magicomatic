@@ -1,12 +1,16 @@
-﻿using Magicomatic.Data.Model;
-using Magicomatic.UI.DataRetrievers;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using System.Linq;
+using System.Collections.Generic;
+using Magicomatic.Data.Model;
+using Magicomatic.UI.DataRetrievers;
 
 namespace Magicomatic.UI.Views
 {
     public partial class CardLibraryView : UserControl
     {
+        private List<Card> cardLibrary;
+
         public CardLibraryView()
         {
             InitializeComponent();
@@ -16,18 +20,30 @@ namespace Magicomatic.UI.Views
         private void InitializeData()
         {
             CardLibraryDataRetriever cardLibraryDataRetriever = new CardLibraryDataRetriever();
-
-            dataGrid.ItemsSource = cardLibraryDataRetriever.RetrieveCardLibrary();
+            cardLibrary = cardLibraryDataRetriever.RetrieveCardLibrary() as List<Card>;
+            dataGrid.ItemsSource = cardLibrary;
         }
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
-            //logic
+            var query = cardLibrary.Where(c => c.Name.ToLower().Contains(autoCompleteBoxSearch.Text.ToLower()));
+            dataGrid.ItemsSource = query;
+
+            dataGrid.Focus();
+            dataGrid.SelectedIndex = 0;
+
+            Card card = dataGrid.SelectedItem as Card;
+            LoadCardData(card);
         }
 
         private void dataGrid_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Card card = dataGrid.SelectedItem as Card;
+            LoadCardData(card);
+        }
+
+        private void LoadCardData(Card card)
+        {
             DataContext = card;
             imageCard.Source = new CardImageRetriever(card).Retrieve();
         }
