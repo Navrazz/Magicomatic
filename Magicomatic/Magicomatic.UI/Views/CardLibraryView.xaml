@@ -7,8 +7,18 @@
              xmlns:local="clr-namespace:Magicomatic.UI.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <Style x:Key="AutoCompleteBoxStyle" TargetType="{x:Type toolkit:AutoCompleteBox}">
+            <Style.Resources>
+                <Style TargetType="{x:Type ListBox}">
+                    <Setter Property="MaxHeight" Value="200" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+
     <Grid Margin="0,0,0,0">
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -33,7 +43,8 @@
         </DataGrid>
 
         <Label                   x:Name="label" Content="Enter Card Name:"  Grid.Column="3" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Width="100"/>
-        <toolkit:AutoCompleteBox x:Name="autoCompleteBoxSearch" Grid.Column="3"  HorizontalAlignment="Left" Margin="105,53,0,0"  VerticalAlignment="Top" Width="120" Height="25" MinimumPrefixLength="3" />
+        <toolkit:AutoCompleteBox x:Name="autoCompleteBoxSearch" Grid.Column="3"  HorizontalAlignment="Left" Margin="105,53,0,0"  VerticalAlignment="Top" Width="120" Height="25" 
+                                 MinimumPrefixLength="3" Style="{StaticResource AutoCompleteBoxStyle}" />
         <Button                  x:Name="buttonSearch"  Grid.Column="3" Content="Search" HorizontalAlignment="Left" Margin="230,53,0,0" VerticalAlignment="Top" Width="75"  Height="25" Click="buttonSearch_Click"/>
 
         <GroupBox x:Name="groupBoxImage" Header="Image" Grid.Row="2" HorizontalAlignment="Stretch" Margin="5,10,10,5">

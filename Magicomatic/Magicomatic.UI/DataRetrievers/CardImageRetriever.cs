@@ -16,24 +16,34 @@ namespace Magicomatic.UI.DataRetrievers
 
         public ImageSource Retrieve()
         {
+            //Land cards images won't be retrieve
             if (card.Name == "Plains" || card.Name == "Island" || card.Name == "Swamp" || card.Name == "Mountain" || card.Name == "Forest")
             {
                 return null;
             }
             else
             {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(CardImagePathBuilder(card.Name, card.SetCode), UriKind.Relative);
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-                return bitmapImage;
+                try
+                {
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.UriSource = new Uri(CardImagePathBuilder(card.Name, card.SetCode), UriKind.Relative);
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.EndInit();
+                    return bitmapImage;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
             }
         }
 
         private string CardImagePathBuilder(string cardName, string cardSet)
         {
-           return @"D:\Data\Images\" + cardSet + @"\" + cardName + ".full.jpg";
+           // It's just my local folder where i keep card images. It will change when i figure out place in web to put it.
+           // Path is like that for tests only
+           return @"D:\Data\Images\" + cardSet + @"\" + cardName + ".full.jpg"; 
         }
     }
 }

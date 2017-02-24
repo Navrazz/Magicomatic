@@ -22,6 +22,19 @@ namespace Magicomatic.UI.Views
             CardLibraryDataRetriever cardLibraryDataRetriever = new CardLibraryDataRetriever();
             cardLibrary = cardLibraryDataRetriever.RetrieveCardLibrary() as List<Card>;
             dataGrid.ItemsSource = cardLibrary;
+
+            autoCompleteBoxSearch.ItemsSource = GetCardNameList(cardLibrary);
+            autoCompleteBoxSearch.PopulateComplete();
+        }
+
+        private HashSet<string> GetCardNameList(List<Card> cardList)
+        {
+            HashSet<string> cardNames = new HashSet<string>();
+            foreach (Card card in cardList)
+            {
+                cardNames.Add(card.Name);
+            }
+            return cardNames;
         }
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)

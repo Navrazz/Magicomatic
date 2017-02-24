@@ -1,7 +1,5 @@
-﻿
+﻿using System.Collections;
 using Magicomatic.Data;
-using Magicomatic.Data.Model;
-using System.Collections;
 
 namespace Magicomatic.UI.DataRetrievers
 {
