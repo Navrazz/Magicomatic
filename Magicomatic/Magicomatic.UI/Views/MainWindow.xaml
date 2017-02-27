@@ -24,6 +24,18 @@
                 </TabItem.Header>
                 <tab:CardLibraryView></tab:CardLibraryView>
             </TabItem>
+
+            <!-- Card Collection Tab-->
+
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Your Inventory"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <tab:UserInventory></tab:UserInventory>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>
