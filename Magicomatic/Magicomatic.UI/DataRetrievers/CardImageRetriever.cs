@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Magicomatic.Data.Model;
+using Magicomatic.Data.Models;
 
 namespace Magicomatic.UI.DataRetrievers
 {

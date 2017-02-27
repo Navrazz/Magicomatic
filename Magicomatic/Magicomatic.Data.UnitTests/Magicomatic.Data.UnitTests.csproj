@@ -51,10 +51,14 @@
     <Compile Include="CardRepositoryFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readers\CardLibraryReaderTests.cs" />
+    <Compile Include="Readers\UserInventoryReaderTests.cs" />
     <Compile Include="Tools\FileManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\EMN.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\UserInventory.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

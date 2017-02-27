@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Linq;
 using System.Collections.Generic;
-using Magicomatic.Data.Model;
+using Magicomatic.Data.Models;
 using Magicomatic.UI.DataRetrievers;
 
 namespace Magicomatic.UI.Views
