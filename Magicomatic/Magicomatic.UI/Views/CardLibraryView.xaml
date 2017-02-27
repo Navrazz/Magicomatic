@@ -7,8 +7,18 @@
              xmlns:local="clr-namespace:Magicomatic.UI.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <Style x:Key="AutoCompleteBoxStyle" TargetType="{x:Type toolkit:AutoCompleteBox}">
+            <Style.Resources>
+                <Style TargetType="{x:Type ListBox}">
+                    <Setter Property="MaxHeight" Value="200" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+
     <Grid Margin="0,0,0,0">
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -22,7 +32,7 @@
         </Grid.RowDefinitions>
 
         <DataGrid x:Name="dataGrid" Grid.Row="0"  Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="5,50,0,5" Width="1010"
-                  AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow" SelectionMode="Single" MouseLeftButtonUp="dataGrid_MouseLeftButtonUp" KeyboardNavigation.TabNavigation="None">
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow" SelectionMode="Single" MouseLeftButtonUp="dataGrid_MouseLeftButtonUp" KeyboardNavigation.TabNavigation="None" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name"   Binding="{Binding Name}"   Width="370"/>
                 <DataGridTextColumn Header="Set"    Binding="{Binding Set}"    Width="280"/>
@@ -33,7 +43,8 @@
         </DataGrid>
 
         <Label                   x:Name="label" Content="Enter Card Name:"  Grid.Column="3" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Width="100"/>
-        <toolkit:AutoCompleteBox x:Name="autoCompleteBoxSearch" Grid.Column="3"  HorizontalAlignment="Left" Margin="105,53,0,0"  VerticalAlignment="Top" Width="120" Height="25" MinimumPrefixLength="3" />
+        <toolkit:AutoCompleteBox x:Name="autoCompleteBoxSearch" Grid.Column="3"  HorizontalAlignment="Left" Margin="105,53,0,0"  VerticalAlignment="Top" Width="120" Height="25" 
+                                 MinimumPrefixLength="3" Style="{StaticResource AutoCompleteBoxStyle}" />
         <Button                  x:Name="buttonSearch"  Grid.Column="3" Content="Search" HorizontalAlignment="Left" Margin="230,53,0,0" VerticalAlignment="Top" Width="75"  Height="25" Click="buttonSearch_Click"/>
 
         <GroupBox x:Name="groupBoxImage" Header="Image" Grid.Row="2" HorizontalAlignment="Stretch" Margin="5,10,10,5">
@@ -47,35 +58,35 @@
                                                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
 
                 <Label   x:Name="labelType"       Content="Type:"      Width="auto" Height="30"   Canvas.Left="5"  Canvas.Top="45" FontWeight="Bold"/>
-                <TextBox x:Name="textBoxType"     Text=""              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="50" MaxWidth="240" MaxHeight="20" 
+                <TextBox x:Name="textBoxType"     Text="{Binding Type}"              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="50" MaxWidth="240" MaxHeight="20" 
                                                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
 
                 <Label   x:Name="labelSet"        Content="Set:"       Width="auto" Height="30"   Canvas.Left="5"  Canvas.Top="65" FontWeight="Bold"/>
-                <TextBox x:Name="textBoxSet"      Text=""              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="70" MaxWidth="240" MaxHeight="20" 
+                <TextBox x:Name="textBoxSet"      Text="{Binding Set}"              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="70" MaxWidth="240" MaxHeight="20" 
                                                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
 
                 <Label   x:Name="labelSetCode"    Content="Set Code:"  Width="auto" Height="30"   Canvas.Left="5"  Canvas.Top="85" FontWeight="Bold"/>
-                <TextBox x:Name="textBoxSetCode"  Text=""              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="90" MaxWidth="240" MaxHeight="20" 
+                <TextBox x:Name="textBoxSetCode"  Text="{Binding SetCode}"              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="90" MaxWidth="240" MaxHeight="20" 
                                                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
 
                 <Label   x:Name="labelRarity"     Content="Rarity:"    Width="auto" Height="30"   Canvas.Left="5"  Canvas.Top="105" FontWeight="Bold"/>
-                <TextBox x:Name="textBoxRarity"   Text=""              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="110" MaxWidth="240" MaxHeight="20" 
+                <TextBox x:Name="textBoxRarity"   Text="{Binding Rarity}"              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="110" MaxWidth="240" MaxHeight="20" 
                                                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
 
                 <Label   x:Name="labelManaCost"   Content="Mana Cost:" Width="auto" Height="30"   Canvas.Left="5"  Canvas.Top="125" FontWeight="Bold"/>
-                <TextBox x:Name="textBoxManaCost" Text=""              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="130" MaxWidth="240" MaxHeight="20" 
+                <TextBox x:Name="textBoxManaCost" Text="{Binding ManaCost}"              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="130" MaxWidth="240" MaxHeight="20" 
                                                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
 
                 <Label   x:Name="labelNumber"     Content="Number:"    Width="auto" Height="30"   Canvas.Left="5"  Canvas.Top="145" FontWeight="Bold"/>
-                <TextBox x:Name="textBoxNumber"   Text=""              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="150" MaxWidth="240" MaxHeight="20" 
+                <TextBox x:Name="textBoxNumber"   Text="{Binding Number}"              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="150" MaxWidth="240" MaxHeight="20" 
                                                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
 
                 <Label   x:Name="labelArtist"     Content="Artist:"    Width="auto" Height="30"   Canvas.Left="5"  Canvas.Top="165" FontWeight="Bold"/>
-                <TextBox x:Name="textBoxArtist"   Text=""              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="170" MaxWidth="240" MaxHeight="20" 
+                <TextBox x:Name="textBoxArtist"   Text="{Binding Artist}"              Width="auto" Height="30"   Canvas.Left="75" Canvas.Top="170" MaxWidth="240" MaxHeight="20" 
                                                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
 
                 <Label   x:Name="labelFlavor"     Content="Flavor:"    Width="auto" Height="30"   Canvas.Left="5"  Canvas.Top="185" FontWeight="Bold"/>
-                <TextBox x:Name="textBoxFlavor"   Text=""              Width="auto" Height="auto" Canvas.Left="10" Canvas.Top="208"  MaxWidth="250" MaxHeight="90" 
+                <TextBox x:Name="textBoxFlavor"   Text="{Binding Flavor}"              Width="auto" Height="auto" Canvas.Left="10" Canvas.Top="208"  MaxWidth="250" MaxHeight="90" 
                                                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
             </Canvas>
         </GroupBox>
@@ -83,11 +94,11 @@
         <GroupBox x:Name="groupBoxDescription" Header="Description" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="10,10,5,5" KeyboardNavigation.TabNavigation="None">
             <Canvas Margin="2,2,2,2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Label     x:Name="labelAbility"   Content="Ability:" Width="auto" Height="30"  Canvas.Left="5" Canvas.Top="10" FontWeight="Bold"/>
-                <TextBox   x:Name="textBoxAbility" Text=""            Width="auto" Height="auto" Canvas.Left="10" Canvas.Top="35"  MaxWidth="580" MaxHeight="140" 
+                <TextBox   x:Name="textBoxAbility" Text="{Binding Ability}"            Width="auto" Height="auto" Canvas.Left="10" Canvas.Top="35"  MaxWidth="580" MaxHeight="140" 
                            TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
 
                 <Label     x:Name="labelRuling"    Content="Ruling:"  Width="auto" Height="30"   Canvas.Left="5"  Canvas.Top="160" FontWeight="Bold"/>
-                <TextBox   x:Name="textBoxRuling"  Text=""            Width="auto" Height="auto" Canvas.Left="10" Canvas.Top="185" MaxWidth="580" MaxHeight="120"
+                <TextBox   x:Name="textBoxRuling"  Text="{Binding Ruling}"            Width="auto" Height="auto" Canvas.Left="10" Canvas.Top="185" MaxWidth="580" MaxHeight="120"
                            TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"/>
             </Canvas>
         </GroupBox>

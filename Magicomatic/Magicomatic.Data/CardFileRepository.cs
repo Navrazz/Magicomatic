@@ -6,13 +6,14 @@ namespace Magicomatic.Data
 {
     public class CardFileRepository : ICardRepository
     {
-        private FileManager fileManager;
         private string filePath;
 
-        public CardFileRepository(FileManager fileManager, string filePath)
+        private FileManager fileManager;
+
+        public CardFileRepository(string filePath, FileManager fileManager)
         {
-            this.fileManager = fileManager;
             this.filePath    = filePath;
+            this.fileManager = fileManager;
         }
 
         public IEnumerable Retrieve()

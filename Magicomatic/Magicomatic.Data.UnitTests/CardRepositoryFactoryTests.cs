@@ -10,6 +10,8 @@ namespace Magicomatic.Data.UnitTests
     class CardRepositoryFactoryTests : AssertionHelper
     {
         private string filePath;
+        private string url;
+
         private FileManager fileManager;
 
         private CardRepositoryFactory target;
@@ -18,9 +20,10 @@ namespace Magicomatic.Data.UnitTests
         public void Before_Each_Test()
         {
             this.filePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Data/EMN.csv";
+            this.url = "dummy url";
             this.fileManager = Substitute.For<FileManager>();
 
-            this.target = new CardRepositoryFactory(this.fileManager);
+            this.target = new CardRepositoryFactory(this.filePath, this.url, this.fileManager);
         }
 
         [Test]
@@ -28,7 +31,7 @@ namespace Magicomatic.Data.UnitTests
         {
             this.fileManager.FileExists(Arg.Any<string>()).Returns(true);
 
-            var actual = this.target.CreateRepository(filePath);
+            var actual = this.target.CreateRepository();
 
             Expect(actual, Is.TypeOf(typeof(CardFileRepository)));
         }
@@ -38,7 +41,7 @@ namespace Magicomatic.Data.UnitTests
         {
             this.fileManager.FileExists(Arg.Any<string>()).Returns(false);
 
-            var actual = this.target.CreateRepository(filePath);
+            var actual = this.target.CreateRepository();
 
             Expect(actual, Is.TypeOf(typeof(CardOnlineRepository)));
         }

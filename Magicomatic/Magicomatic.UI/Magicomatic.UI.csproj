@@ -79,6 +79,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataRetrievers\CardImageRetriever.cs" />
+    <Compile Include="DataRetrievers\CardLibraryDataRetriever.cs" />
     <Compile Include="Views\CardLibraryView.xaml.cs">
       <DependentUpon>CardLibraryView.xaml</DependentUpon>
     </Compile>
@@ -114,6 +116,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Magicomatic.Data\Magicomatic.Data.csproj">
+      <Project>{beb8a2d4-a467-4ba7-9e5f-846af882cb51}</Project>
+      <Name>Magicomatic.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -52,8 +52,8 @@ namespace Magicomatic.Data.UnitTests.Readers
             Expect(actual[0].GeneratedMana,     Is.EqualTo(""));
             Expect(actual[0].Number,            Is.EqualTo("115"));
             Expect(actual[0].Rarity,            Is.EqualTo("U"));
-            Expect(actual[0].Ruling,            Is.EqualTo("£7/13/2016 : You can’t target the same creature twice to have it get +2/+0."));
-            Expect(actual[0].Ability,           Is.EqualTo(@"Up to two target creatures each get +1/+0 and gain first strike until end of turn.£Madness {1}{R} #_(If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)_#"));
+            Expect(actual[0].Ruling,            Is.EqualTo("7/13/2016 : You can’t target the same creature twice to have it get +2/+0."));
+            Expect(actual[0].Ability,           Is.EqualTo(@"Up to two target creatures each get +1/+0 and gain first strike until end of turn."+"\n\n"+"Madness {1}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)"));
         }
     }
 }

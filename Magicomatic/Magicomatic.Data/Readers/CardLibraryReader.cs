@@ -71,15 +71,24 @@ namespace Magicomatic.Data.Readers
             card.Loyality          = dataRow[Loyality];
             card.ManaCost          = dataRow[ManaCost];
             card.ConvertedManaCost = dataRow[ConvertedManaCost];
-            card.Ability           = dataRow[Ability];
-            card.Ruling            = dataRow[Ruling];
+            card.Ability           = TextFormatter(dataRow[Ability]);
+            card.Ruling            = TextFormatter(dataRow[Ruling]);
             card.Rarity            = dataRow[Rarity];
             card.Color             = dataRow[Color];
             card.GeneratedMana     = dataRow[GeneratedMana];
-            card.Flavor            = dataRow[Flavor];
+            card.Flavor            = TextFormatter(dataRow[Flavor]);
             card.Artist            = dataRow[Artist];
 
             return card;
+        }
+
+        private static string TextFormatter(string text)
+        {
+            text = text.Replace("_#", "");
+            text = text.Replace("#_", "");
+            text = text.Replace("£", "\n\n");
+            text = text.TrimStart('\n');
+            return text;
         }
     }
 }
