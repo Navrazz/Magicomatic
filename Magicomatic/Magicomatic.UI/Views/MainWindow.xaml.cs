@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using Magicomatic.UI.DataRetrievers;
+using Magicomatic.UI.Views;
 
 namespace Magicomatic.UI
 {

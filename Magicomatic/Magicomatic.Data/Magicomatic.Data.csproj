@@ -52,6 +52,7 @@
     <Compile Include="Readers\CardLibraryReader.cs" />
     <Compile Include="Readers\UserInventoryReader.cs" />
     <Compile Include="Tools\FileManager.cs" />
+    <Compile Include="UserInventoryRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

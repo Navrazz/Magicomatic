@@ -55,7 +55,7 @@
     <Compile Include="Tools\FileManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\EMN.csv">
+    <None Include="Data\CardLibrary.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\UserInventory.csv">

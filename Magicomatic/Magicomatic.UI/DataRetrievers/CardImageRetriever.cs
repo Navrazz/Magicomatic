@@ -16,14 +16,14 @@ namespace Magicomatic.UI.DataRetrievers
 
         public ImageSource Retrieve()
         {
-            //Land cards images won't be retrieve
-            if (card.Name == "Plains" || card.Name == "Island" || card.Name == "Swamp" || card.Name == "Mountain" || card.Name == "Forest")
+            try
             {
-                return null;
-            }
-            else
-            {
-                try
+                //Land cards images won't be retrieve
+                if (card.Name == "Plains" || card.Name == "Island" || card.Name == "Swamp" || card.Name == "Mountain" || card.Name == "Forest")
+                {
+                    return null;
+                }
+                else
                 {
                     BitmapImage bitmapImage = new BitmapImage();
                     bitmapImage.BeginInit();
@@ -32,10 +32,10 @@ namespace Magicomatic.UI.DataRetrievers
                     bitmapImage.EndInit();
                     return bitmapImage;
                 }
-                catch (Exception ex)
-                {
-                    return null;
-                }
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 

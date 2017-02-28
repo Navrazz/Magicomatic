@@ -1,28 +1,59 @@
-﻿using System;
+﻿using Microsoft.Win32;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Magicomatic.Data;
+using Magicomatic.Data.Models;
+using Magicomatic.UI.DataRetrievers;
 
 namespace Magicomatic.UI.Views
 {
-    /// <summary>
-    /// Interaction logic for UserInventory.xaml
-    /// </summary>
     public partial class UserInventory : UserControl
     {
         public UserInventory()
         {
             InitializeComponent();
+        }
+
+        private void buttonOpenUserLibrary_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = GetFilePath();
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                var cardLibrary = new CardRepository(Args.filePath, Args.fileUrl).Retrieve() as List<Card>;
+
+                UserInventoryRepository userInventoryRepository = new UserInventoryRepository(filePath, cardLibrary);
+
+                var userInventory = userInventoryRepository.Retrieve();
+                if (userInventory == null)
+                {
+                    MessageBox.Show("File is invalid");
+                }
+                else
+                {
+                    dataGrid.ItemsSource = userInventory;
+                    dataGrid.IsHitTestVisible = true;
+                }
+            }
+
+            return;
+
+        }
+
+        private string GetFilePath()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.DefaultExt = ".csv";
+            openFileDialog.ShowDialog();
+
+            return openFileDialog.FileName;
+        }
+
+        private void dataGrid_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            UserCard card = dataGrid.SelectedItem as UserCard;
+            imageCard.Source = new CardImageRetriever(card).Retrieve();
         }
     }
 }

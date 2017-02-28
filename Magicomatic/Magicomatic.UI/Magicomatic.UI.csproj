@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Args.cs" />
     <Compile Include="Views\UserInventory.xaml.cs">
       <DependentUpon>UserInventory.xaml</DependentUpon>
     </Compile>

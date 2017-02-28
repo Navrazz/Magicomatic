@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.IO;
+﻿using System.IO;
+using System.Collections;
 using System.Reflection;
 using System.Collections.Generic;
 using NSubstitute;
@@ -23,7 +23,7 @@ namespace Magicomatic.Data.UnitTests.Readers
         [SetUp]
         public void Before_Each_Test()
         {
-            this.filePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Data/EMN.csv";
+            this.filePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Data/CardLibrary.csv";
             this.csvFileRows = File.ReadLines(filePath);
             this.fileManager = Substitute.For<FileManager>();
 

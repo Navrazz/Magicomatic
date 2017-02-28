@@ -30,7 +30,7 @@
         </Grid.RowDefinitions>
 
         <DataGrid x:Name="dataGrid" Grid.Row="0" Grid.RowSpan="2"  Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="5,50,0,5" Width="1010" Height="650"
-                  AutoGenerateColumns="False" SelectionUnit="FullRow" SelectionMode="Single" KeyboardNavigation.TabNavigation="None">
+                  AutoGenerateColumns="False" SelectionUnit="FullRow" SelectionMode="Single" MouseLeftButtonUp="dataGrid_MouseLeftButtonUp" KeyboardNavigation.TabNavigation="None" IsHitTestVisible="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="A"      Binding="{Binding Amount}"   Width="20" />
                 <DataGridTextColumn Header="T"      Binding="{Binding ForTrade}" Width="20" />
@@ -47,7 +47,8 @@
         <GroupBox x:Name="groupBoxImage" Header="Image" HorizontalAlignment="Stretch" Margin="10,39,5,5" Grid.Column="3">
             <Image x:Name="imageCard" Grid.Column="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,5,10,10" MaxHeight="285" MaxWidth="199" />
         </GroupBox>
-        <Button x:Name="buttonGenerate" Content="Generate trade list (plain text)" Grid.Column="3" HorizontalAlignment="Left" Margin="15,18,-108,0" Grid.Row="1" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.5,0.5"/>
+        <!-- <Button x:Name="buttonGenerate"        Content="Generate trade list (plain text)" Grid.Column="3" HorizontalAlignment="Left" Margin="15,45,-108,0" Grid.Row="1" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.5,0.5"/> -->
+        <Button x:Name="buttonOpenUserLibrary" Content="Open user library" Grid.Column="3"                HorizontalAlignment="Left" Margin="15,20,-108,0" Grid.Row="1" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.5,0.5" Click="buttonOpenUserLibrary_Click"/>
 
     </Grid>
 </UserControl>

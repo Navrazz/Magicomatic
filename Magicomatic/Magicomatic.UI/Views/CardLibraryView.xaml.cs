@@ -20,7 +20,7 @@ namespace Magicomatic.UI.Views
         private void InitializeData()
         {
             CardLibraryDataRetriever cardLibraryDataRetriever = new CardLibraryDataRetriever();
-            cardLibrary = cardLibraryDataRetriever.RetrieveCardLibrary() as List<Card>;
+            cardLibrary = cardLibraryDataRetriever.RetrieveCardLibrary(Args.filePath, Args.fileUrl) as List<Card>;
             dataGrid.ItemsSource = cardLibrary;
 
             autoCompleteBoxSearch.ItemsSource = GetCardNameList(cardLibrary);
