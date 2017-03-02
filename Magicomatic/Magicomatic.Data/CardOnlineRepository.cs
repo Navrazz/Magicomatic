@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using Magicomatic.Data.Tools;
+﻿using System.IO;
 using System.Net;
-using System.IO;
+using System.Collections;
 using System.Collections.Generic;
+using Magicomatic.Data.Tools;
 using Magicomatic.Data.Readers;
 
 namespace Magicomatic.Data

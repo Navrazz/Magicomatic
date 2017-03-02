@@ -1,19 +1,19 @@
-﻿using System.Collections;
-using System.IO;
+﻿using System.IO;
+using System.Collections;
 using System.Reflection;
+using System.Collections.Generic;
 using NSubstitute;
 using NUnit.Framework;
 using Magicomatic.Data.Tools;
 using Magicomatic.Data.Readers;
-using Magicomatic.Data.Model;
-using System.Collections.Generic;
+using Magicomatic.Data.Models;
 
 namespace Magicomatic.Data.UnitTests.Readers
 {
     [TestFixture]
     class CardLibraryReaderTests : AssertionHelper
     {
-        private string FilePath;
+        private string filePath;
 
         private IEnumerable csvFileRows;
         private FileManager fileManager;
@@ -23,8 +23,8 @@ namespace Magicomatic.Data.UnitTests.Readers
         [SetUp]
         public void Before_Each_Test()
         {
-            this.FilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Data/EMN.csv";
-            this.csvFileRows = File.ReadLines(FilePath);
+            this.filePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Data/CardLibrary.csv";
+            this.csvFileRows = File.ReadLines(filePath);
             this.fileManager = Substitute.For<FileManager>();
 
             this.target = new CardLibraryReader(fileManager);
@@ -33,9 +33,9 @@ namespace Magicomatic.Data.UnitTests.Readers
         [Test]
         public void Reads_Cards_From_Csv()
         {
-            this.fileManager.ReadLines(FilePath).Returns(csvFileRows);
+            this.fileManager.ReadLines(filePath).Returns(csvFileRows);
 
-            var actual = target.Read(FilePath) as List<Card>;
+            var actual = target.Read(filePath) as List<Card>;
             Expect(actual[0].Name,              Is.EqualTo("Abandon Reason"));
             Expect(actual[0].Set,               Is.EqualTo("Eldritch Moon"));
             Expect(actual[0].SetCode,           Is.EqualTo("EMN"));

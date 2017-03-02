@@ -20,6 +20,5 @@ namespace Magicomatic.Data
         {
             return new CardLibraryReader(this.fileManager).Read(filePath);
         }
-
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using NUnit.Framework;
 using Magicomatic.Data.Tools;
@@ -9,7 +8,7 @@ namespace Magicomatic.Data.UnitTests.Tools
     [TestFixture]
     class FileManagerTests : AssertionHelper
     {
-        private string FilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Data/EMN.csv";
+        private string FilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Data/CardLibrary.csv";
         private FileManager fileManager;
 
         [SetUp]

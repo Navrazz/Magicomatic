@@ -3,11 +3,11 @@ using Magicomatic.Data;
 
 namespace Magicomatic.UI.DataRetrievers
 {
-    class CardLibraryDataRetriever
+    public class CardLibraryDataRetriever
     {
-        public IEnumerable RetrieveCardLibrary()
+        public IEnumerable RetrieveCardLibrary(string filePath, string url)
         {
-            return new CardRepository("CardLibrary.csv", "https://www.dropbox.com/s/xjxk5gonurjt1qe/MTGCardDatabase.csv?dl=1").Retrieve();
+            return new CardRepository(filePath, url).Retrieve();
         }
     }
 }

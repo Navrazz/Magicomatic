@@ -16,7 +16,7 @@
 
             <!-- Card Library Tab-->
 
-            <TabItem>
+            <TabItem Name="cardLibraryView">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Card Database"/>
@@ -24,6 +24,18 @@
                 </TabItem.Header>
                 <tab:CardLibraryView></tab:CardLibraryView>
             </TabItem>
+
+            <!-- User Library Tab-->
+
+            <TabItem Name="userLibrary">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Your Inventory"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <tab:UserInventory></tab:UserInventory>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

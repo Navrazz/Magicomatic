@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Magicomatic.Data.Model;
+using Magicomatic.Data.Models;
 using Magicomatic.Data.Tools;
 
+//Reads csv from Gatherer Extractor
 namespace Magicomatic.Data.Readers
 {
-    public class CardLibraryReader
+    public class CardLibraryReader : IReader
     {
         private const int Name              = 0;
         private const int Set               = 1;

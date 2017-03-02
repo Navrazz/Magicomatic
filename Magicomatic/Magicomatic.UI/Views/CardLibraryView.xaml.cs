@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Linq;
 using System.Collections.Generic;
-using Magicomatic.Data.Model;
+using Magicomatic.Data.Models;
 using Magicomatic.UI.DataRetrievers;
 
 namespace Magicomatic.UI.Views
@@ -20,7 +20,7 @@ namespace Magicomatic.UI.Views
         private void InitializeData()
         {
             CardLibraryDataRetriever cardLibraryDataRetriever = new CardLibraryDataRetriever();
-            cardLibrary = cardLibraryDataRetriever.RetrieveCardLibrary() as List<Card>;
+            cardLibrary = cardLibraryDataRetriever.RetrieveCardLibrary(Args.filePath, Args.fileUrl) as List<Card>;
             dataGrid.ItemsSource = cardLibrary;
 
             autoCompleteBoxSearch.ItemsSource = GetCardNameList(cardLibrary);

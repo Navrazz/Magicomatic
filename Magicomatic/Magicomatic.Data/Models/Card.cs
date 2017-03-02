@@ -1,5 +1,5 @@
 ﻿
-namespace Magicomatic.Data.Model
+namespace Magicomatic.Data.Models
 {
     public class Card
     {
