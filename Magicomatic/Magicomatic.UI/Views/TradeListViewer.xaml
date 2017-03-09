@@ -1,0 +1,14 @@
+﻿<Window x:Class="Magicomatic.UI.Views.TradeListViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Magicomatic.UI.Views"
+        mc:Ignorable="d"
+        Title="TradeListViewer" Height="330" Width="300">
+    <Grid>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272"/>
+        <Button x:Name="buttonClose" Content="Close"             HorizontalAlignment="Left" Margin="160,265,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-0.443,0.068" Click="button_Click"/>
+        <Button x:Name="buttonCopy"  Content="Copy to clipboard" HorizontalAlignment="Left" Margin="30,265,0,0"  VerticalAlignment="Top" Width="100" RenderTransformOrigin="-0.443,0.068" Click="buttonCopy_Click"/>
+    </Grid>
+</Window>

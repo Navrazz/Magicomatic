@@ -68,8 +68,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Args.cs" />
-    <Compile Include="Views\UserInventory.xaml.cs">
-      <DependentUpon>UserInventory.xaml</DependentUpon>
+    <Compile Include="Tools\TradeListRetriever.cs" />
+    <Compile Include="Views\TradeListViewer.xaml.cs">
+      <DependentUpon>TradeListViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserInventoryView.xaml.cs">
+      <DependentUpon>UserInventoryView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\CardLibraryView.xaml">
       <SubType>Designer</SubType>
@@ -92,7 +96,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\UserInventory.xaml">
+    <Page Include="Views\TradeListViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserInventoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,9 +139,7 @@
       <Name>Magicomatic.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tools\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

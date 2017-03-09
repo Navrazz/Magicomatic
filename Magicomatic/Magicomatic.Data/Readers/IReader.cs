@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
+using Magicomatic.Data.Models;
 
 namespace Magicomatic.Data.Readers
 {
     interface IReader
     {
-        IEnumerable Read(string path);
+        IEnumerable<Card> Read(string path);
     }
 }

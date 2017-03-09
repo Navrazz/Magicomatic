@@ -35,7 +35,7 @@ namespace Magicomatic.Data.Readers
             this.fileManager = fileManager;
         }
 
-        public IEnumerable Read(string path)
+        public IEnumerable<Card> Read(string path)
         {
             int counter = 1;
             List<Card> CardList = new List<Card>();

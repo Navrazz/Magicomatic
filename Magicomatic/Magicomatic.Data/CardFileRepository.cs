@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using Magicomatic.Data.Readers;
 using Magicomatic.Data.Tools;
+using Magicomatic.Data.Models;
 
 namespace Magicomatic.Data
 {
@@ -16,7 +17,7 @@ namespace Magicomatic.Data
             this.fileManager = fileManager;
         }
 
-        public IEnumerable Retrieve()
+        public IEnumerable<Card> Retrieve()
         {
             return new CardLibraryReader(this.fileManager).Read(filePath);
         }

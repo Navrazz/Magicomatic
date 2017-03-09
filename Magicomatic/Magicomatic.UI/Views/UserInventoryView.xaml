@@ -47,8 +47,8 @@
         <GroupBox x:Name="groupBoxImage" Header="Image" HorizontalAlignment="Stretch" Margin="10,39,5,5" Grid.Column="3">
             <Image x:Name="imageCard" Grid.Column="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,5,10,10" MaxHeight="285" MaxWidth="199" />
         </GroupBox>
-        <!-- <Button x:Name="buttonGenerate"        Content="Generate trade list (plain text)" Grid.Column="3" HorizontalAlignment="Left" Margin="15,45,-108,0" Grid.Row="1" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.5,0.5"/> -->
-        <Button x:Name="buttonOpenUserLibrary" Content="Open user library" Grid.Column="3"                HorizontalAlignment="Left" Margin="15,20,-108,0" Grid.Row="1" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.5,0.5" Click="buttonOpenUserLibrary_Click"/>
+        <Button x:Name="buttonGenerateTradeList" Content="Generate trade list (plain text)" Grid.Column="3" HorizontalAlignment="Left" Margin="15,45,-108,0" Grid.Row="1" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.5,0.5" Click="buttonGenerateTradeList_Click"/> 
+        <Button x:Name="buttonOpenUserLibrary"   Content="Open user library" Grid.Column="3"                HorizontalAlignment="Left" Margin="15,20,-108,0" Grid.Row="1" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.5,0.5" Click="buttonOpenUserLibrary_Click"/>
 
     </Grid>
 </UserControl>

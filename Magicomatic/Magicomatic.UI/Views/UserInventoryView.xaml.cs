@@ -5,11 +5,14 @@ using System.Windows.Controls;
 using Magicomatic.Data;
 using Magicomatic.Data.Models;
 using Magicomatic.UI.DataRetrievers;
+using Magicomatic.UI.Tools;
 
 namespace Magicomatic.UI.Views
 {
     public partial class UserInventory : UserControl
     {
+        private IEnumerable<UserCard> userInventory;
+
         public UserInventory()
         {
             InitializeComponent();
@@ -24,7 +27,8 @@ namespace Magicomatic.UI.Views
 
                 UserInventoryRepository userInventoryRepository = new UserInventoryRepository(filePath, cardLibrary);
 
-                var userInventory = userInventoryRepository.Retrieve();
+                this.userInventory = userInventoryRepository.Retrieve() as List<UserCard>;
+
                 if (userInventory == null)
                 {
                     MessageBox.Show("File is invalid");
@@ -37,7 +41,27 @@ namespace Magicomatic.UI.Views
             }
 
             return;
+        }
 
+        private void buttonGenerateTradeList_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.userInventory != null)
+            {
+                TradeListRetriever tradeListRetriever = new TradeListRetriever();
+                IEnumerable<UserCard> tradeList = tradeListRetriever.Retrieve(this.userInventory);
+
+                TradeListViewer tradeListViewer = new TradeListViewer(tradeList);
+                tradeListViewer.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                tradeListViewer.Show();
+            }
+
+            else return;
+        }
+
+        private void dataGrid_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            UserCard card = dataGrid.SelectedItem as UserCard;
+            imageCard.Source = new CardImageRetriever(card).Retrieve();
         }
 
         private string GetFilePath()
@@ -50,10 +74,6 @@ namespace Magicomatic.UI.Views
             return openFileDialog.FileName;
         }
 
-        private void dataGrid_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            UserCard card = dataGrid.SelectedItem as UserCard;
-            imageCard.Source = new CardImageRetriever(card).Retrieve();
-        }
+
     }
 }

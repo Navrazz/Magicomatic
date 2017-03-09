@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Magicomatic.Data.Tools;
 using Magicomatic.Data.Readers;
+using Magicomatic.Data.Models;
 
 namespace Magicomatic.Data
 {
@@ -21,11 +22,11 @@ namespace Magicomatic.Data
             this.fileManager = fileManager;
         }
 
-        public IEnumerable Retrieve()
+        public IEnumerable<Card> Retrieve()
         {
             IEnumerable csv = GetCsvFromWeb();
             SaveToFile(csv);
-            IEnumerable cardLibrary = new CardLibraryReader(fileManager).Read(filePath);
+            IEnumerable<Card> cardLibrary = new CardLibraryReader(fileManager).Read(filePath);
             return cardLibrary;
         }
 
