@@ -28,7 +28,7 @@ namespace Magicomatic.Data.Readers
             this.cardLibrary = cardLibrary;
         }
 
-        public IEnumerable Read(string path)
+        public IEnumerable<Card> Read(string path)
         {
             int counter = 1;
 

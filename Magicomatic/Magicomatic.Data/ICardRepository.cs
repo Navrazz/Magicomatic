@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
+using Magicomatic.Data.Models;
 
 namespace Magicomatic.Data
 {
     public interface ICardRepository
     {
-        IEnumerable Retrieve();
+        IEnumerable<Card> Retrieve();
     }
 }

@@ -1,5 +1,6 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using Magicomatic.Data.Tools;
+using Magicomatic.Data.Models;
 
 namespace Magicomatic.Data
 {
@@ -17,10 +18,10 @@ namespace Magicomatic.Data
             this.fileManager = new FileManager();
         }
 
-        public IEnumerable Retrieve()
+        public IEnumerable<Card> Retrieve()
         {
             ICardRepository repository = new CardRepositoryFactory(this.filePath, this.url, this.fileManager).CreateRepository();
-            IEnumerable CardLibrary = repository.Retrieve();
+            IEnumerable<Card> CardLibrary = repository.Retrieve();
             return CardLibrary;
         }
     }
